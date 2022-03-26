@@ -1,9 +1,0 @@
-.status {
-  display: flex;
-  margin-top: 200px;
-  text-transform: uppercase;
-  /* Align horizontally */
-  justify-content: center;
-  /* Align vertically */
-  align-items: center;
-}

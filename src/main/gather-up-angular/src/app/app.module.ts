@@ -7,13 +7,19 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoggerModule, NgxLoggerLevel} from "ngx-logger";
 
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {ProfileComponent} from './profile/profile.component';
+import {EventsComponent} from './events/events.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    EventsComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -22,6 +28,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     RouterModule,
     FormsModule,
     HttpClientModule,
+    // NGX Logger Configuration
     LoggerModule.forRoot({
       serverLoggingUrl: 'http://localhost:9999/api/logs', // URL to POST logs
       level: NgxLoggerLevel.DEBUG, // only log messages of this level or higher (OFF disables logger for client)
