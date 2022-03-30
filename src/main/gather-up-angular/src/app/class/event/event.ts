@@ -1,11 +1,11 @@
 export class Event {
-  id: number; // PK
+  id: number;
   title: string;
   description: string;
   location: string;
   dateTime: string;
   type: string;
-  userId: number; // FK to associate Event with User
+  userId: number; // FK associates Event to User
 
   constructor(id: number, title: string, description: string, location: string, dateTime: string, type: string, userId: number) {
     this.id = id;
