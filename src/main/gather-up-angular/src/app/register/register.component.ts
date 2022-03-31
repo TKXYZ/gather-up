@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
+
 import { User } from '../class/user/user';
 
 @Component({
