@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -28,16 +29,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RouterModule,
     FormsModule,
     HttpClientModule,
-    // NGX Logger Configuration
+    // NGXLogger Configuration (https://github.com/dbfannin/ngx-logger/blob/HEAD/docs/config.md)
     LoggerModule.forRoot({
+      level: NgxLoggerLevel.DEBUG, // only log messages of this level or higher (OFF disables the logger for the client) (TRACE|DEBUG|INFO|LOG|WARN|ERROR|FATAL|OFF)
       serverLoggingUrl: 'http://localhost:9999/api/logs', // URL to POST logs
-      level: NgxLoggerLevel.DEBUG, // only log messages of this level or higher (OFF disables logger for client)
-      serverLogLevel: NgxLoggerLevel.ERROR, // only send log messages of this level or higher to the server (OFF disables logger for server)
-      timestampFormat: 'long', // format for the timestamp displayed w/ each log message
+      serverLogLevel: NgxLoggerLevel.ERROR, // only send log messages of this level or higher to the server (OFF disables the logger for the server)
+      httpResponseType: 'json', // the response type of the HTTP Logging request
+      timestampFormat: 'short', // format for the timestamp displayed with each log message
       colorScheme: ['purple', 'teal', 'gray', 'gray', 'red', 'red', 'red'] // TRACE|DEBUG|INFO|LOG|WARN|ERROR|FATAL|OFF
     })
   ],
-  providers: [],
+  providers: [
+    DatePipe // for NGXLogger to use timestampFormat config option
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

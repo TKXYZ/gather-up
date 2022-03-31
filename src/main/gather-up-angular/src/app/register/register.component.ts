@@ -9,19 +9,18 @@ import { User } from '../class/user/user';
 })
 export class RegisterComponent implements OnInit {
 
+  // Two-way bind will replace these values when User submits
+  user: User = new User(0, "", "", "", "", "");
+
   constructor(private loggy: NGXLogger) { }
 
   ngOnInit(): void {
   }
 
   register(): void {
-    this.loggy.info("--- register() clicked ---");
+    this.loggy.info("register() clicked");
 
-    // Constructs User based on input values
-    let email = (<HTMLInputElement>document.getElementById("inputEmail")).value;
-    let password = (<HTMLInputElement>document.getElementById("inputPassword")).value;
-    let firstName = (<HTMLInputElement>document.getElementById("inputFirstName")).value;
-    let lastName = (<HTMLInputElement>document.getElementById("inputLastName")).value;
-    let contact = (<HTMLInputElement>document.getElementById("inputContact")).value;
+    // Sanity check
+    console.log(this.user);
   }
 }
