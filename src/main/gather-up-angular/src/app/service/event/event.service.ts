@@ -10,6 +10,7 @@ import { Event } from 'src/app/class/event/event';
   providedIn: 'root'
 })
 export class EventService {
+  
   private baseUrl: string;
 
   // Custom HTTP options to throw into CRUD operations
