@@ -3,6 +3,9 @@ import { NGXLogger } from 'ngx-logger';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Event } from 'src/app/class/event/event';
+
+// This service maintains CRUD operations for Event
 @Injectable({
   providedIn: 'root'
 })
@@ -24,8 +27,24 @@ export class EventService {
   }
 
   // CREATE
+  public createEvent(event: Event) {
+    try {
+      return this.http.post<Event>(this.baseUrl + "/event/createEvent", event, this.httpOptions); // http://localhost:9999/event/createEvent
+    } catch (error) {
+      this.loggy.error("EventService createEvent() error: " + error);
+      throw (error);
+    }
+  }
 
   // READ
+  public getEvents(): Observable<Event[]> {
+    try {
+      return this.http.get<Event[]>(this.baseUrl + "/event/getEvents", this.httpOptions); // http://localhost:9999/event/getEvents
+    } catch (error) {
+      this.loggy.error("EventService getEvents() error: " + error);
+      throw (error);
+    }
+  }
 
   // UPDATE
 

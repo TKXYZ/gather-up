@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { User } from "../../class/user/user";
 
-// This service maintains CRUD operations for Users
+// This service maintains CRUD operations for User
 @Injectable({
   providedIn: 'root'
 })
@@ -77,7 +77,7 @@ export class UserService {
   // DELETE
   public deleteUserById(id: number) {
     try {
-      return this.http.delete<User>(this.baseUrl + "/user/deleteUserById/" + id, this.httpOptions);
+      return this.http.delete<User>(this.baseUrl + "/user/deleteUserById/" + id, this.httpOptions); // http://localhost:9999/user/deleteUserById/{id}
     } catch (error) {
       this.loggy.error("UserService deleteUserById() error: " + error);
       throw (error);
