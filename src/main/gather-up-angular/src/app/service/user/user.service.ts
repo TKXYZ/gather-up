@@ -75,5 +75,12 @@ export class UserService {
   }
 
   // DELETE
-  
+  public deleteUserById(id: number) {
+    try {
+      return this.http.delete<User>(this.baseUrl + "/user/deleteUserById/" + id, this.httpOptions);
+    } catch (error) {
+      this.loggy.error("UserService deleteUserById() error: " + error);
+      throw (error);
+    }
+  }
 }
