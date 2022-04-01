@@ -1,3 +1,4 @@
+<!-- Configuration for Log4j 2 -->
 <Configuration status="debug" name="gather-up" packages="">
   <!-- Appenders define where logs are routed -->
   <Appenders>
