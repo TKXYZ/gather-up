@@ -22,8 +22,8 @@ export class EventService {
   };
 
   constructor(private loggy: NGXLogger, private http: HttpClient) {
-    this.baseUrl = "http://localhost:9999/"; // development endpoint
-    // this.baseUrl = "http://ec2-18-217-122-210.us-east-2.compute.amazonaws.com:9999/"; // production endpoint
+    this.baseUrl = "http://localhost:9999"; // development endpoint
+    // this.baseUrl = "http://ec2-18-217-122-210.us-east-2.compute.amazonaws.com:9999"; // production endpoint
   }
 
   // CREATE
@@ -46,7 +46,32 @@ export class EventService {
     }
   }
 
+  public getEventById(id: number): Observable<Event> {
+    try {
+      return this.http.get<Event>(this.baseUrl + "/event/getEventById/" + id, this.httpOptions); // http://localhost:9999/event/getEventById/{id}
+    } catch (error) {
+      this.loggy.error("EventService getEventById() error: " + error);
+      throw (error);
+    }
+  }
+
   // UPDATE
+  public updateEvent(event: Event) {
+    try {
+      return this.http.put<Event>(this.baseUrl + "/event/updateEvent", event, this.httpOptions); // http://localhost:9999/event/updateEvent
+    } catch (error) {
+      this.loggy.error("EventService updateEvent() error: " + error);
+      throw (error);
+    }
+  }
 
   // DELETE
+  public deleteEventById(id: number) {
+    try {
+      return this.http.delete<Event>(this.baseUrl + "/event/deleteEventById/" + id, this.httpOptions); // http://localhost:9999/event/deleteEventById/{id}
+    } catch (error) {
+      this.loggy.error("EventService deleteEventById() error: " + error);
+      throw (error);
+    }
+  }
 }
