@@ -8,7 +8,7 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
+  private int id; // PK
   private String email;
   private String password;
   private String firstName;
