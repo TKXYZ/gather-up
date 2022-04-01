@@ -18,9 +18,8 @@ export class PasswordEncryptionService {
     for (var i: number = 0; i < password.length; i++) {
       tempIndex = forwards.indexOf(password[i]);
       newPassword += backwards[tempIndex];
-
     }
-    this.loggy.info("Enrypted password: " + newPassword);
+    this.loggy.info("User password has been encrypted.");
     return newPassword;
   }
 }
