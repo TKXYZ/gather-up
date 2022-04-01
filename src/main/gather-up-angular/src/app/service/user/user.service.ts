@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { User } from "../../class/user/user";
-import { Observable } from 'rxjs';
 
 // This service maintains CRUD operations for Users
 @Injectable({
