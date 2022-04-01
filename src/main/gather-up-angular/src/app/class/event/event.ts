@@ -1,5 +1,5 @@
 export class Event {
-  id: number;
+  id: number; // PK
   title: string;
   description: string;
   location: string;
