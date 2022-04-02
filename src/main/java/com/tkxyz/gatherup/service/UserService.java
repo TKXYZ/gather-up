@@ -24,7 +24,7 @@ public class UserService {
   public User createUser(User user) {
     if (getUserByEmail(user.getEmail()) == null) {
       userDao.save(user);
-      logger.info("Successfully saved user: " + user.toString());
+      logger.info("Successfully created user: " + user);
     } else {
       logger.error("User by that email already exists.");
     }
@@ -33,18 +33,21 @@ public class UserService {
 
   // READ
   public List<User> getUsers() {
+    logger.info("Retrieving all users.");
     return userDao.findAll();
   }
 
   public User getUserById(int id) {
+    logger.info("Retrieving user by id: " + id);
     Optional<User> user = userDao.findById(id);
     return user.get();
   }
 
   public User getUserByEmail(String email) {
+    logger.info("Retrieving user by email: " + email);
     List<User> userList = userDao.findAll();
     for (User user : userList) {
-      if (user.getEmail().equals(email)) {
+      if (user.getEmail().equalsIgnoreCase(email)) {
         return user;
       }
     }
@@ -53,13 +56,13 @@ public class UserService {
 
   // UPDATE
   public User updateUser(User user) {
-    logger.info("Successfully updated user: " + user.toString());
+    logger.info("Successfully updated user: " + user);
     return userDao.save(user);
   }
 
   // DELETE
   public void deleteUserById(int id) {
-    logger.info("Successfully deleted user: " + getUserById(id).getFirstName() + " " + getUserById(id).getLastName());
+    logger.info("Successfully deleted user: " + getUserById(id));
     userDao.deleteById(id);
   }
 }
