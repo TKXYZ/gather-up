@@ -82,6 +82,7 @@ public class Event {
   @Override
   public String toString() {
     return "Event [dateTime=" + dateTime + ", description=" + description + ", id=" + id + ", location=" + location
-        + ", title=" + title + ", type=" + type + ", userId=" + userId + "]";
+        + ", title=" + title + ", userId=" + userId + "]";
   }
+
 }
