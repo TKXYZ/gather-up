@@ -10,7 +10,7 @@ import { User } from "../../class/user/user";
   providedIn: 'root'
 })
 export class UserService {
-  
+
   private baseUrl: string;
 
   // Custom HTTP options to throw into CRUD operations
