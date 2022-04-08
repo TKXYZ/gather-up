@@ -1,6 +1,6 @@
 package com.tkxyz.gatherup.controller;
 
-import com.tkxyz.gatherup.dao.UserDao;
+import com.tkxyz.gatherup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,10 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-	private final UserDao userDao;
+	private final UserService userService;
 
 	@Autowired
-	public UserController(UserDao userDao) {
-		this.userDao = userDao;
+	public UserController(UserService userService) {
+		this.userService = userService;
 	}
+
+	// CREATE
+
+	// READ
+
+	// UPDATE
+
+	// DELETE
 }
