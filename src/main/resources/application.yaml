@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: Gather Up
+    name: Gather-Up
   datasource:
-    url: jdbc:h2:mem:mydb
+    url: jdbc:h2:mem:gu-db
     username: admin
     password: p4ssw0rd
     driverClassName: org.h2.Driver
@@ -24,3 +24,16 @@ spring:
         format-sql: true
     hibernate:
       ddl-auto: update
+
+#spring.application.name=Gather-Up
+#spring.jpa.show-sql=true
+#spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.defer-datasource-initialization=true
+#spring.jpa.properties.hibernate.format_sql=true
+#spring.jpa.hibernate.ddl-auto=update
+#spring.datasource.url=jdbc:h2:mem:gu-db
+#spring.datasource.username=admin
+#spring.datasource.password=p4ssw0rd
+#spring.datasource.driver-class-name=org.h2.Driver
+#spring.h2.console.enabled=false
+#spring.h2.console.path=/h2
