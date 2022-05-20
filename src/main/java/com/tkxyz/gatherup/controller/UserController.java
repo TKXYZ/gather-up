@@ -21,34 +21,34 @@ public class UserController {
 	// CREATE
 	@PostMapping("/user/createUser") // http://localhost:9999/user/createUser
 	public User createUser(@RequestBody User user) {
-		return null;
+		return userService.createUser(user);
 	}
 
 	// READ
 	@GetMapping("/user/getUsers") // http://localhost:9999/user/getUsers
 	public List<User> getUsers() {
-		return null;
+		return userService.getUsers();
 	}
 
 	@GetMapping("/user/getUserById/{id}") // http://localhost:9999/user/getUserById/{id}
 	public User getUserById(@PathVariable("id") int id) {
-		return null;
+		return userService.getUserById(id);
 	}
 
 	@GetMapping("/user/getUserByEmail/{email}") // http://localhost:9999/user/getUserByEmail/{email}
 	public User getUserByEmail(@PathVariable("email") String email) {
-		return null;
+		return userService.getUserByEmail(email);
 	}
 
 	// UPDATE
 	@PutMapping("/user/updateUser") // http://localhost:9999/user/updateUser
 	public User updateUser(@RequestBody User user) {
-		return null;
+		return userService.updateUser(user);
 	}
 
 	// DELETE
 	@DeleteMapping("/user/deleteUserById/{id}") // http://localhost:9999/user/deleteUserById/{id}
 	public void deleteUserById(@PathVariable("id") int id) {
-
+		userService.deleteUserById(id);
 	}
 }

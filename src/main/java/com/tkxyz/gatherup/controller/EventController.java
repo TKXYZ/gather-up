@@ -21,29 +21,29 @@ public class EventController {
 	// CREATE
 	@PostMapping("/event/createEvent") // http://localhost:9999/event/createEvent
 	public Event createEvent(@RequestBody Event event) {
-		return null;
+		return eventService.createEvent(event);
 	}
 
 	// READ
 	@GetMapping("/event/getEvents") // http://localhost:9999/event/getEvents
 	public List<Event> getEvents() {
-		return null;
+		return eventService.getEvents();
 	}
 
 	@GetMapping("/event/getEventById/{id}") // http://localhost:9999/event/getEventById/{id}
 	public Event getEventById(@PathVariable("id") int id) {
-		return null;
+		return eventService.getEventById(id);
 	}
 
 	// UPDATE
 	@PutMapping("/event/updateEvent") // http://localhost:9999/event/updateEvent
 	public Event updateEvent(@RequestBody Event event) {
-		return null;
+		return eventService.updateEvent(event);
 	}
 
 	// DELETE
 	@DeleteMapping("/event/deleteEventById/{id}") // http://localhost:9999/event/deleteEventById/{id}
 	public void deleteEventById(@PathVariable("id") int id) {
-
+		eventService.deleteEventById(id);
 	}
 }
