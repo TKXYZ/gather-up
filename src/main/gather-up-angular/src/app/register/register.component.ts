@@ -23,16 +23,14 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.loggy.info("register() invoked");
 
-    // Encrypts user password before sending to DB
-    this.user.password = this.passwordEncryptionService.encrypt((<HTMLInputElement>document.getElementById("password")).value);
-
     // Sanity check
     console.log(this.user);
 
     // DB operation
-    this.userService.createUser(this.user).subscribe(data => {
-      this.loggy.info("User from DB: " + data);
-      if (data != null) {
+    this.userService.getUserByEmail(this.user.email).subscribe(data => {
+      if (data == null) {
+        this.userService.createUser(this.user).subscribe();
+
         this.loggy.info("Registration successful.");
 
         // Stores key for current session
@@ -41,10 +39,10 @@ export class RegisterComponent implements OnInit {
         this.loggy.info("Stored key: " + sessionKey);
 
         // Route
-        window.location.assign("/event");
+        window.location.assign("/events");
       } else {
         this.loggy.error("Registration failed.")
-        alert("User already exists. Try logging in instead?");
+        alert("User already exists by that email. Try logging in instead?");
       }
     })
   }

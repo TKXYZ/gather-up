@@ -11,39 +11,39 @@ import java.util.List;
 @RestController
 public class EventController {
 
-	private final EventService eventService;
+  private final EventService eventService;
 
-	@Autowired
-	public EventController(EventService eventService) {
-		this.eventService = eventService;
-	}
+  @Autowired
+  public EventController(EventService eventService) {
+    this.eventService = eventService;
+  }
 
-	// CREATE
-	@PostMapping("/event/createEvent") // http://localhost:9999/event/createEvent
-	public Event createEvent(@RequestBody Event event) {
-		return eventService.createEvent(event);
-	}
+  // CREATE
+  @PostMapping("/event/createEvent") // http://localhost:9999/event/createEvent
+  public Event createEvent(@RequestBody Event event) {
+    return eventService.createEvent(event);
+  }
 
-	// READ
-	@GetMapping("/event/getEvents") // http://localhost:9999/event/getEvents
-	public List<Event> getEvents() {
-		return eventService.getEvents();
-	}
+  // READ
+  @GetMapping("/event/getEvents") // http://localhost:9999/event/getEvents
+  public List<Event> getEvents() {
+    return eventService.getEvents();
+  }
 
-	@GetMapping("/event/getEventById/{id}") // http://localhost:9999/event/getEventById/{id}
-	public Event getEventById(@PathVariable("id") int id) {
-		return eventService.getEventById(id);
-	}
+  @GetMapping("/event/getEventById/{id}") // http://localhost:9999/event/getEventById/{id}
+  public Event getEventById(@PathVariable("id") int id) {
+    return eventService.getEventById(id);
+  }
 
-	// UPDATE
-	@PutMapping("/event/updateEvent") // http://localhost:9999/event/updateEvent
-	public Event updateEvent(@RequestBody Event event) {
-		return eventService.updateEvent(event);
-	}
+  // UPDATE
+  @PutMapping("/event/updateEvent") // http://localhost:9999/event/updateEvent
+  public Event updateEvent(@RequestBody Event event) {
+    return eventService.updateEvent(event);
+  }
 
-	// DELETE
-	@DeleteMapping("/event/deleteEventById/{id}") // http://localhost:9999/event/deleteEventById/{id}
-	public void deleteEventById(@PathVariable("id") int id) {
-		eventService.deleteEventById(id);
-	}
+  // DELETE
+  @DeleteMapping("/event/deleteEventById/{id}") // http://localhost:9999/event/deleteEventById/{id}
+  public void deleteEventById(@PathVariable("id") int id) {
+    eventService.deleteEventById(id);
+  }
 }

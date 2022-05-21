@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {NGXLogger} from 'ngx-logger';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { NGXLogger } from 'ngx-logger';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import {Event} from 'src/app/class/event/event';
+import { Event } from 'src/app/class/event/event';
 
 // This service maintains CRUD operations for Event
 @Injectable({

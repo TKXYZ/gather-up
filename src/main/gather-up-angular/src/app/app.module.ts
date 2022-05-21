@@ -32,8 +32,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     // NGXLogger Configuration (https://github.com/dbfannin/ngx-logger/blob/HEAD/docs/config.md)
     LoggerModule.forRoot({
       level: NgxLoggerLevel.DEBUG, // only log messages of this level or higher (OFF disables the logger for the client) (TRACE|DEBUG|INFO|LOG|WARN|ERROR|FATAL|OFF)
-      serverLoggingUrl: 'http://localhost:9999/api/logs', // URL to POST logs
-      serverLogLevel: NgxLoggerLevel.ERROR, // only send log messages of this level or higher to the server (OFF disables the logger for the server)
       httpResponseType: 'json', // the response type of the HTTP Logging request
       timestampFormat: 'short', // format for the timestamp displayed with each log message
       colorScheme: ['purple', 'teal', 'gray', 'gray', 'red', 'red', 'red'] // TRACE|DEBUG|INFO|LOG|WARN|ERROR|FATAL|OFF

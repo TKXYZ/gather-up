@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 public class MainController {
-	@GetMapping("/") // Default mapping
-	public String helloWorld() {
-		return "Hello, world!";
-	}
+  @GetMapping("/") // localhost:9999 (default mapping)
+  public String helloWorld() {
+    return "Hello, world!";
+  }
 }

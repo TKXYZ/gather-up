@@ -8,10 +8,10 @@ spring:
     url: jdbc:h2:mem:gu-db
     # By default, H2 databases are volatile (data lost after app stops)
     # The following overrides this
-    # url: jdbc:h2:file:/data/demo
-    username: admin
-    password: p4ssw0rd
+    # url: jdbc:h2:file:/data/gu-db
     driverClassName: org.h2.Driver
+    username: sa
+    password: 
   h2:
     console:
       enabled: true
