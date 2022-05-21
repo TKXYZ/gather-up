@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   // Two-way bind will replace these values when User submits
   user: User = new User(0, "", "", "", "", "");
 
-  constructor(private loggy: NGXLogger, private passwordEncryptionService: PasswordEncryptionService, private userService: UserService) { }
+  constructor(private loggy: NGXLogger, private userService: UserService) { }
 
   ngOnInit(): void {
   }
