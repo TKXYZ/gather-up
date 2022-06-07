@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {User} from "../class/user/user";
+import { Component, OnInit } from '@angular/core';
+import { User } from "../class/user/user";
 
 @Component({
   selector: 'app-login',
@@ -8,6 +8,7 @@ import {User} from "../class/user/user";
 })
 export class LoginComponent implements OnInit {
 
+  // Two-way bind will replace these values when user submits
   user: User = new User(0, "", "", "", "", "");
 
   constructor() {

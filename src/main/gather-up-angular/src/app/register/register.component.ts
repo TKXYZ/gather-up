@@ -12,7 +12,7 @@ import { UserService } from '../service/user/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  // Two-way bind will replace these values when User submits
+  // Two-way bind will replace these values when user submits
   user: User = new User(0, "", "", "", "", "");
 
   constructor(private loggy: NGXLogger, private userService: UserService) { }
