@@ -12,19 +12,18 @@ import { UserService } from '../service/user/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  // Two-way bind will replace these values when user submits
+  // Values replaced via two-way binding when form submitted
   user: User = new User(0, "", "", "", "", "");
 
   constructor(private loggy: NGXLogger, private userService: UserService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   register(): void {
     this.loggy.info("register() invoked");
 
     // Sanity check
-    console.log(this.user);
+    this.loggy.info(this.user);
 
     // DB operation
     this.userService.getUserByEmail(this.user.email).subscribe(data => {
@@ -33,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
         this.loggy.info("Registration successful.");
 
-        // Stores key for current session
+        // Store key for current session
         sessionStorage.setItem("email", this.user.email);
         let sessionKey = sessionStorage.getItem("email");
         this.loggy.info("Stored key: " + sessionKey);
@@ -44,6 +43,6 @@ export class RegisterComponent implements OnInit {
         this.loggy.error("Registration failed.")
         alert("User already exists by that email. Try logging in instead?");
       }
-    })
+    });
   }
 }

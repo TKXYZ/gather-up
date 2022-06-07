@@ -5,7 +5,7 @@
 
     <!-- RIGHT HALF -->
     <div class="col-md-6 bg-light">
-      <div class="login d-flex align-items-center">
+      <div class="banner d-flex align-items-center">
 
         <!-- LOGIN FORM -->
         <div class="container">
@@ -16,7 +16,7 @@
                 <!-- EMAIL -->
                 <div class="form-group">
                   <input [(ngModel)]="user.email" name="inputEmail" #email="ngModel" type="email" placeholder="Email address" class="form-control border-0 shadow px-4" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
-                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger rounded-pill border-0 shadow m-1 p-1 text-center text-muted">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger border-0 shadow m-1 p-1 text-center text-muted">
                     <div *ngIf="email.errors?.['required']">Email is required!</div>
                     <div *ngIf="email.errors?.['pattern']">Email must be in [email@domain.info] format.</div>
                   </div>
@@ -24,18 +24,20 @@
                 <!-- PASSWORD -->
                 <div class="form-group">
                   <input [(ngModel)]="user.password" name="inputPassword" #password="ngModel" type="password" placeholder="Password" class="form-control border-0 shadow px-4" required>
-                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger rounded-pill border-0 shadow m-1 p-1 text-center text-muted">
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger border-0 shadow m-1 p-1 text-center text-muted">
                     <div *ngIf="email.errors?.['required']">Password is required!</div>
                   </div>
                 </div>
 
                 <!-- BUTTONS -->
-                <button class="btn btn-primary btn-block text-uppercase rounded-pill border-0 shadow mt-4" type="submit" [disabled]="!loginForm.form.valid">Sign In</button>
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-block text-uppercase shadow mt-4" [disabled]="!loginForm.form.valid">Sign In</button>
+                </div>
 
                 <!-- ROUTING -->
-                <div class="text-center justify-content-between mt-4">
+                <div class="d-flex justify-content-center mt-4">
                   <p>
-                    New user? <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="font-italic text-muted">Register</a>
+                    New user? <em><a routerLink="/register" routerLinkActive="active-link" class="text-muted">Register</a></em>
                   </p>
                 </div>
               </form>
