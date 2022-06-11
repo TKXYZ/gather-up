@@ -1,6 +1,10 @@
 package com.tkxyz.gatherup.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name = "user")
 @Table
@@ -78,7 +82,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [contact=" + contact + ", email=" + email + ", firstName=" + firstName + ", id=" + id + ", lastName="
-						+ lastName + ", password=" + password + "]";
+				+ lastName + ", password=" + password + "]";
 	}
 
 }

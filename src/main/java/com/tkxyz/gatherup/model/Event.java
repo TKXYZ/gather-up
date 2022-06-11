@@ -1,6 +1,10 @@
 package com.tkxyz.gatherup.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name = "event")
 @Table
@@ -78,7 +82,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "Event [dateTime=" + dateTime + ", description=" + description + ", id=" + id + ", location=" + location
-						+ ", title=" + title + ", userId=" + userId + "]";
+				+ ", title=" + title + ", userId=" + userId + "]";
 	}
 
 }
