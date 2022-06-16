@@ -12,9 +12,22 @@ export class ProfileComponent implements OnInit {
 
   user: User = new User(0, "", "", "", "", "");
 
+  sessionKey: string;
+
   constructor(private loggy: NGXLogger, private userServive: UserService) { }
 
   ngOnInit(): void {
+    // Extract key from current session
+    this.sessionKey = sessionStorage.getItem("email")!; // ! is TS non-null assertion operator
+    this.loggy.info("Current sessionKey: " + this.sessionKey);
+
+    // Validate if key exists and routes accordingly
+    if (this.sessionKey == null) {
+      window.location.reload();
+      window.location.assign("/login");
+    } else {
+      this.userServive.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
+    }
   }
 
   logOut() {
@@ -25,5 +38,6 @@ export class ProfileComponent implements OnInit {
     // Test if data remains
 
     // Route
+    window.location.assign("/login");
   }
 }

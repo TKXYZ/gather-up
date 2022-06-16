@@ -1,6 +1,6 @@
-<div class="container my-5">
+<div class="container my-4">
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top my-4 p-4" src="https://gatherup.com/wp-content/themes/gatherup/assets/images/GatherUp-Logo.svg" alt="Card Image">
+    <img class="card-img-top my-4 p-4" src="https://i.pinimg.com/originals/cd/51/a9/cd51a90028e9adbf575d2d2d42cc87b4.png" alt="Card Image">
     <div class="card-body">
       <h4 class="card-title mb-4">User Information</h4>
       <!-- USER INFORMATION -->
@@ -12,10 +12,9 @@
         <p><strong>Contact: </strong>{{user?.contact}}</p>
       </div>
       <!-- BUTTONS -->
-      <div class="mt-5">
-        <button class="btn btn-primary btn-block" [routerLink]="['/eventview']" routerLinkActive="router-link-active">My Events</button>
-        <button class="btn btn-success btn-block" [routerLink]="['/event']" routerLinkActive="router-link-active">Add Events</button>
-        <button class="btn btn-danger btn-block" (click)="logOut()" [routerLink]="['/']" routerLinkActive="router-link-active">Log Out</button>
+      <div class="mt-4">
+        <button class="btn btn-primary btn-block" routerLink="/events" routerLinkActive="active-link">My Events</button>
+        <button class="btn btn-danger btn-block" (click)="logOut()">Log Out</button>
       </div>
     </div>
   </div>
@@ -26,4 +25,4 @@
 
 	To print raw JSON:
 		<p>User: {{user | json}}</p>
- -->Ø
+ -->

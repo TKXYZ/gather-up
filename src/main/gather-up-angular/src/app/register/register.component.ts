@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
         this.loggy.info("Stored key: " + sessionKey);
 
         // Route
-        window.location.assign("/events");
+        window.location.assign("/profile");
       } else {
         this.loggy.error("Registration failed.")
         alert("User already exists by that email. Try logging in instead?");

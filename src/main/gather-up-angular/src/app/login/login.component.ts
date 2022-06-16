@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           this.loggy.info("Stored key: " + sessionKey);
 
           // Route
-          window.location.assign("/events");
+          window.location.assign("/profile");
         } else {
           this.loggy.error("Login failed, invalid password.");
           alert("Invalid password!");
