@@ -19,11 +19,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     // Extract key from current session
     this.sessionKey = sessionStorage.getItem("email")!; // ! is TS non-null assertion operator
-    this.loggy.info("Current sessionKey: " + this.sessionKey);
 
     // Validate if key exists and routes accordingly
     if (this.sessionKey == null) {
-      window.location.reload();
       window.location.assign("/login");
     } else {
       this.userServive.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
@@ -34,8 +32,7 @@ export class ProfileComponent implements OnInit {
     this.loggy.info("logOut() invoked");
 
     // Clear session
-
-    // Test if data remains
+    sessionStorage.clear();
 
     // Route
     window.location.assign("/login");
