@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
-
 import { User } from '../class/user/user';
-import { PasswordEncryptionService } from '../service/password-encryption/password-encryption.service';
 import { UserService } from '../service/user/user.service';
 
 @Component({

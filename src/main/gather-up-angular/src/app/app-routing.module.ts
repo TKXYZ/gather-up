@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { LoginComponent } from "./login/login.component";
-import { RegisterComponent } from "./register/register.component";
-import { ProfileComponent } from "./profile/profile.component";
 import { EventsComponent } from "./events/events.component";
+import { LoginComponent } from "./login/login.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { RegisterComponent } from "./register/register.component";
 
 // Defines Global Routes
 const routes: Routes = [
