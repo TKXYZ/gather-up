@@ -17,10 +17,10 @@ export class EventsComponent implements OnInit {
   constructor(private loggy: NGXLogger, private userService: UserService) { }
 
   ngOnInit(): void {
-    // Extract key from current session
-    this.sessionKey = sessionStorage.getItem("email")!; // ! is TS non-null assertion operator
+    // Extract session key from sessionStorage
+    this.sessionKey = sessionStorage.getItem("email")!;
 
-    // Validate if key exists and routes accordingly
+    // Validate if key exists and do something
     if (this.sessionKey == null) {
       window.location.assign("/login");
     }

@@ -13,8 +13,6 @@ export class AppComponent {
   ngOnInit() { }
 
   logOut() {
-    this.loggy.info("logOut() invoked");
-
     // Clear session
     sessionStorage.clear();
 
