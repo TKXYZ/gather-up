@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   user: User = new User(0, "", "", "", "", "");
   sessionKey: string;
 
-  constructor(private loggy: NGXLogger, private userServive: UserService) { }
+  constructor(private userServive: UserService) { }
 
   ngOnInit(): void {
     // Extract session key from sessionStorage

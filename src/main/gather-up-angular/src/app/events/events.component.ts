@@ -10,12 +10,12 @@ import { EventService } from '../service/event/event.service';
 })
 export class EventsComponent implements OnInit {
 
-  event: Event = new Event(0, "eventTitle", "eventDescription", "eventLocation", "eventDateTime", 0);
+  event: Event = new Event(0, "tempTitle", "tempDescription", "tempLocation", "tempDateTime", 0);
   eventList: Event[] = [];
   sessionKey: string;
   isHidden = false;
 
-  constructor(private loggy: NGXLogger, private eventService: EventService) { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
     // Extract session key from sessionStorage
