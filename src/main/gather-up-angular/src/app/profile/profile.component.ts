@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NGXLogger } from 'ngx-logger';
 import { User } from '../class/user/user';
 import { UserService } from '../service/user/user.service';
 
@@ -13,7 +12,7 @@ export class ProfileComponent implements OnInit {
   user: User = new User(0, "", "", "", "", "");
   sessionKey: string;
 
-  constructor(private userServive: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     // Extract session key from sessionStorage
@@ -23,8 +22,8 @@ export class ProfileComponent implements OnInit {
     if (this.sessionKey == null) {
       window.location.assign("/login");
     } else {
-      // GET user's details
-      this.userServive.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
+      // GET user
+      this.userService.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
     }
   }
 

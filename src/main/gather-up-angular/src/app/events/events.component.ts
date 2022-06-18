@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NGXLogger } from 'ngx-logger';
 import { Event } from '../class/event/event';
+import { User } from '../class/user/user';
 import { EventService } from '../service/event/event.service';
+import { UserService } from '../service/user/user.service';
 
 @Component({
   selector: 'app-events',
@@ -10,12 +11,13 @@ import { EventService } from '../service/event/event.service';
 })
 export class EventsComponent implements OnInit {
 
-  event: Event = new Event(0, "tempTitle", "tempDescription", "tempLocation", "tempDateTime", 0);
+  event: Event = new Event(0, "", "", "", "", 0);
   eventList: Event[] = [];
+  user: User = new User(0, "", "", "", "", "");
   sessionKey: string;
   isHidden = false;
 
-  constructor(private eventService: EventService) { }
+  constructor(private userService: UserService, private eventService: EventService) { }
 
   ngOnInit(): void {
     // Extract session key from sessionStorage
@@ -25,8 +27,9 @@ export class EventsComponent implements OnInit {
     if (this.sessionKey == null) {
       window.location.assign("/login");
     } else {
-      // GET user's events
-      this.eventService.getEvents().subscribe(data => this.eventList = data);
+      // GET user and their events
+
+      // TODO: Create an eventService func that grabs event via user's ID
     }
   }
 

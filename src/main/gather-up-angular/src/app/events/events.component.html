@@ -3,6 +3,7 @@
   <div class="container">
     <div class="display-4 text-center m-4">Events</div>
     <div class="container col-8">
+      <!-- Create div for each event -->
       <div *ngFor="let event of eventList; let i=index">
         <div *ngIf="!isHidden" class="card p-4 my-4 border-0 shadow">
           <p hidden><strong>Event ID: </strong>{{event?.id}}</p>
@@ -28,30 +29,34 @@
       <div class="modal-content">
         <!-- MODAL HEADER -->
         <div class="modal-header">
-          <h4 class="modal-title" id="ad‰dEventModalLabel">Add an Event</h4>
+          <h4 class="modal-title" id="addEventModalLabel">Add an Event</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- MODAL BODY -->
         <div class="modal-body">
-          <form (ngSubmit)="saveEvent()" #addEventForm="ngForm">
+          <form #addEventForm="ngForm">
+            <!-- TITLE -->
             <div class="form-group">
-              <input [(ngModel)]="event.title" #eventName="ngModel" name="inputEventTitle" id="inputEventTitle" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
             </div>
+            <!-- DESCRIPTION -->
             <div class="form-group">
-              <input [(ngModel)]="event.description" #eventDescription="ngModel" name="inputEventDescription" id="inputEventDescription" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
             </div>
+            <!-- LOCATION -->
             <div class="form-group">
-              <input [(ngModel)]="event.location" #eventLocation="ngModel" name="inputEventLocation" id="inputEventLocation" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
             </div>
+            <!-- DATETIME -->
             <div class="form-group">
-              <input [(ngModel)]="event.dateTime" #dateTime="ngModel" name="inputDateTime" id="inputDateTime" type="datetime-local" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
             </div>
           </form>
         </div>
         <!-- MODAL FOOTER -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" [disabled]="!addEventForm.form.valid">Save</button>
+          <button type="button" class="btn btn-primary" (click)="saveEvent()" [disabled]="!addEventForm.form.valid">Save</button>
         </div>
       </div>
     </div>
