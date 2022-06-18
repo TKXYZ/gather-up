@@ -11,19 +11,19 @@ import { UserService } from '../service/user/user.service';
 export class ProfileComponent implements OnInit {
 
   user: User = new User(0, "", "", "", "", "");
-
   sessionKey: string;
 
   constructor(private loggy: NGXLogger, private userServive: UserService) { }
 
   ngOnInit(): void {
     // Extract session key from sessionStorage
-    this.sessionKey = sessionStorage.getItem("email")!;
+    this.sessionKey = sessionStorage.getItem("email")!; // TS non-null assertion operator
 
     // Validate if key exists and do something
     if (this.sessionKey == null) {
       window.location.assign("/login");
     } else {
+      // GET user's details
       this.userServive.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
     }
   }
