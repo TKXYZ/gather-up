@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NGXLogger } from 'ngx-logger';
 import { User } from '../class/user/user';
 import { UserService } from '../service/user/user.service';
 
@@ -12,11 +13,12 @@ export class ProfileComponent implements OnInit {
   user: User = new User(0, "", "", "", "", "");
   sessionKey: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private loggy: NGXLogger, private userService: UserService) { }
 
   ngOnInit(): void {
     // Extract session key from sessionStorage
     this.sessionKey = sessionStorage.getItem("email")!; // TS non-null assertion operator
+    this.loggy.warn("Session Key: " + this.sessionKey);
 
     // Validate if key exists and do something
     if (this.sessionKey == null) {

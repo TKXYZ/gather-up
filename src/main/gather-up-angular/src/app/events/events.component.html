@@ -14,14 +14,15 @@
           <p hidden><strong>User ID: </strong>{{event?.userId}}</p>
           <hr>
           <button class="btn btn-danger" (click)="deleteEvent(i)" type="button">Delete</button>
-        </div>
+        </div>Ø
       </div>
     </div>
   </div>
 </div>
 
+<!-- ADD EVENT -->
 <div class="container">
-  <!-- BUTTON TO LAUNCH MODAL -->
+  <!-- LAUNCH MODAL BUTTON -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">Add Event</button>
   <!-- ADD FORM MODAL -->
   <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
@@ -56,7 +57,8 @@
         <!-- MODAL FOOTER -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="saveEvent()" [disabled]="!addEventForm.form.valid">Save</button>
+          <button type="button" class="btn btn-primary" (click)="saveEvent()">Save</button>
+          <!-- <button type="button" class="btn btn-primary" (click)="saveEvent()" [disabled]="!addEventForm.form.valid">Save</button> -->
         </div>
       </div>
     </div>
