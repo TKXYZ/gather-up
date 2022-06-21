@@ -1,20 +1,18 @@
 <!-- EVENT LIST -->
 <div class="container shadow bg-light p-2 my-4">
-  <div class="container">
-    <div class="display-4 text-center m-4">Events</div>
-    <div class="container col-8">
-      <!-- Create div for each event -->
-      <div *ngFor="let event of eventList; let i=index">
-        <div *ngIf="!isHidden" class="card p-4 my-4 border-0 shadow">
-          <p hidden><strong>Event ID: </strong>{{event?.id}}</p>
-          <p><strong>Event Title: </strong>{{event?.title}}</p>
-          <p><strong>Event Description: </strong>{{event?.description}}</p>
-          <p><strong>Event Location: </strong>{{event?.location}}</p>
-          <p><strong>Date & Time: </strong>{{event?.dateTime | date}}</p>
-          <p hidden><strong>User ID: </strong>{{event?.userId}}</p>
-          <hr>
-          <button class="btn btn-danger" (click)="deleteEvent(i)" type="button">Delete</button>
-        </div>Ø
+  <div class="display-4 text-center m-4">Events</div>
+  <div class="container col-8">
+    <!-- Create div for each event -->
+    <div *ngFor="let event of eventList; let i=index">
+      <div *ngIf="!isHidden" class="card p-4 my-4 border-0 shadow">
+        <p hidden><strong>Event ID: </strong>{{event?.id}}</p>
+        <p><strong>Event Title: </strong>{{event?.title}}</p>
+        <p><strong>Event Description: </strong>{{event?.description}}</p>
+        <p><strong>Event Location: </strong>{{event?.location}}</p>
+        <p><strong>Date & Time: </strong>{{event?.dateTime | date}}</p>
+        <p hidden><strong>User ID: </strong>{{event?.userId}}</p>
+        <hr>
+        <button type="button" class="btn btn-danger" (click)="deleteEvent(i)">Delete</button>
       </div>
     </div>
   </div>
@@ -38,19 +36,19 @@
           <form #addEventForm="ngForm">
             <!-- TITLE -->
             <div class="form-group">
-              <input [(ngModel)]="event.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event1.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
             </div>
             <!-- DESCRIPTION -->
             <div class="form-group">
-              <input [(ngModel)]="event.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event1.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
             </div>
             <!-- LOCATION -->
             <div class="form-group">
-              <input [(ngModel)]="event.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event1.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
             </div>
             <!-- DATETIME -->
             <div class="form-group">
-              <input [(ngModel)]="event.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event1.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
             </div>
           </form>
         </div>

@@ -12,8 +12,10 @@ import { UserService } from '../service/user/user.service';
 })
 export class EventsComponent implements OnInit {
 
-  event: Event = new Event(0, "", "", "", "", 0);
-  eventList: Event[] = [];
+  event1: Event = new Event(0, "title", "description", "location", "dateTime", 0);
+  eventList: Event[] = [
+    this.event1
+  ];
   user: User = new User(0, "", "", "", "", "");
   sessionKey: string;
   isHidden = false;
@@ -32,9 +34,6 @@ export class EventsComponent implements OnInit {
       // GET user and their events
       this.userService.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
       this.eventService.getEvents().subscribe(data => this.eventList = data);
-
-      this.loggy.log(this.user);
-      this.loggy.log(this.event);
 
       // TODO: Create an eventService func that grabs event via user's ID
     }
