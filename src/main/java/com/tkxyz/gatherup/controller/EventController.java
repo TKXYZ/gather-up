@@ -43,6 +43,16 @@ public class EventController {
     return eventService.getEventById(id);
   }
 
+  @GetMapping("/event/getEventByTitle/{title}") // http://localhost:9999/event/getEventByTitle/{title}
+  public Event getEventByTitle(@PathVariable("title") String title) {
+    return eventService.getEventByTitle(title);
+  }
+
+  @GetMapping("/event/getEventByUserId/{id}") // http://localhost:9999/event/getEventByUserId/{id}
+  public Event getEventByUserId(@PathVariable("id") int id) {
+    return eventService.getEventByUserId(id);
+  }
+
   // UPDATE
   @PutMapping("/event/updateEvent") // http://localhost:9999/event/updateEvent
   public Event updateEvent(@RequestBody Event event) {

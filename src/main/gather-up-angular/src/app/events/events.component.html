@@ -9,11 +9,19 @@
         <p><strong>Event Title: </strong>{{event?.title}}</p>
         <p><strong>Event Description: </strong>{{event?.description}}</p>
         <p><strong>Event Location: </strong>{{event?.location}}</p>
-        <p><strong>Date & Time: </strong>{{event?.dateTime | date}}</p>
+        <p><strong>Date & Time: </strong>{{event?.dateTime}}</p>
         <p hidden><strong>User ID: </strong>{{event?.userId}}</p>
         <hr>
         <button type="button" class="btn btn-danger" (click)="deleteEvent(i)">Delete</button>
       </div>
+    </div>
+    <div>
+      <p>{{event?.id}}</p>
+      <p>{{event?.title}}</p>
+      <p>{{event?.description}}</p>
+      <p>{{event?.location}}</p>
+      <p>{{event?.dateTime}}</p>
+      <p>{{event?.userId}}</p>
     </div>
   </div>
 </div>
@@ -36,19 +44,19 @@
           <form #addEventForm="ngForm">
             <!-- TITLE -->
             <div class="form-group">
-              <input [(ngModel)]="event1.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
             </div>
             <!-- DESCRIPTION -->
             <div class="form-group">
-              <input [(ngModel)]="event1.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
             </div>
             <!-- LOCATION -->
             <div class="form-group">
-              <input [(ngModel)]="event1.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
             </div>
             <!-- DATETIME -->
             <div class="form-group">
-              <input [(ngModel)]="event1.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
+              <input [(ngModel)]="event.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
             </div>
           </form>
         </div>

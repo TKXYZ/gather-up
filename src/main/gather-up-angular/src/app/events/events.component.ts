@@ -12,10 +12,8 @@ import { UserService } from '../service/user/user.service';
 })
 export class EventsComponent implements OnInit {
 
-  event1: Event = new Event(0, "title", "description", "location", "dateTime", 0);
-  eventList: Event[] = [
-    this.event1
-  ];
+  event: Event = new Event(0, "title", "description", "location", "dateTime", 0);
+  eventList: Event[];
   user: User = new User(0, "", "", "", "", "");
   sessionKey: string;
   isHidden = false;

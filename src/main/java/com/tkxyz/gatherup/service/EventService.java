@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tkxyz.gatherup.dao.EventDao;
@@ -16,7 +15,7 @@ public class EventService {
 
 	private final EventDao eventDao;
 
-	@Autowired
+	// Constructor injection
 	public EventService(EventDao eventDao) {
 		this.eventDao = eventDao;
 	}

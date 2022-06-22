@@ -56,6 +56,24 @@ export class EventService {
     }
   }
 
+  public getEventByTitle(title: string): Observable<Event> {
+    try {
+      return this.http.get<Event>(this.baseUrl + "/event/getEventByTitle/" + title, this.httpOptions); // http://localhost:9999/event/getEventByTitle/{title}
+    } catch (error) {
+      this.loggy.error("EventService getEventByTitle() error: " + error);
+      throw (error);
+    }
+  }
+
+  public getEventByUserId(id: number): Observable<Event> {
+    try {
+      return this.http.get<Event>(this.baseUrl + "/event/getEventByUserId/" + id, this.httpOptions); // http://localhost:9999/event/getEventByUserId/{id}
+    } catch (error) {
+      this.loggy.error("EventService getEventsByUserId() error: " + error);
+      throw (error);
+    }
+  }
+
   // UPDATE
   public updateEvent(event: Event) {
     try {

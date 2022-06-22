@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tkxyz.gatherup.dao.UserDao;
@@ -16,7 +15,7 @@ public class UserService {
 
 	private final UserDao userDao;
 
-	@Autowired
+	// Constructor injection
 	public UserService(UserDao userDao) {
 		this.userDao = userDao;
 	}
