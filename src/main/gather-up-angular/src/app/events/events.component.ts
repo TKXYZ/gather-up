@@ -13,7 +13,7 @@ import { UserService } from '../service/user/user.service';
 export class EventsComponent implements OnInit {
 
   event: Event = new Event(0, "title", "description", "location", "dateTime", 0);
-  eventList: Event[];
+  eventList: Event[] = [];
   user: User = new User(0, "", "", "", "", "");
   sessionKey: string;
   isHidden = false;
@@ -29,16 +29,40 @@ export class EventsComponent implements OnInit {
     if (this.sessionKey == null) {
       window.location.assign("/login");
     } else {
-      // GET user and their events
-      this.userService.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
-      this.eventService.getEvents().subscribe(data => this.eventList = data);
+      // GET user
+      this.userService.getUserByEmail(this.sessionKey).subscribe(data => {
+        this.user = data;
 
-      // TODO: Create an eventService func that grabs event via user's ID
+        // Sanity check
+        this.loggy.info(this.user);
+      });
+
+      // GET user's events
+      this.eventService.getEvents().subscribe(data => {
+        // Iterate through all events and push only user's events into eventList
+        for (let i in data) {
+          if (data[i].userId == this.user.id) {
+            this.eventList.push(data[i]);
+          }
+        }
+
+        // Sanity check
+        this.loggy.info(this.eventList);
+      });
     }
   }
 
   saveEvent(): void {
-    this.loggy.log("saveEvent()");
+    this.loggy.log("saveEvent() invoked");
+
+    // Set the event's userId
+    this.event.userId = this.user.id;
+
+    // Create the event
+    this.eventService.createEvent(this.event).subscribe();
+
+    // Reload
+    window.location.reload();
   }
 
   deleteEvent(index: number): void {

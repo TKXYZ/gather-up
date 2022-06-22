@@ -20,9 +20,6 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.loggy.info("register() invoked");
 
-    // Sanity check
-    this.loggy.info(this.user);
-
     // DB operation
     this.userService.getUserByEmail(this.user.email).subscribe(data => {
       if (data == null) {

@@ -25,7 +25,12 @@ export class ProfileComponent implements OnInit {
       window.location.assign("/login");
     } else {
       // GET user
-      this.userService.getUserByEmail(this.sessionKey).subscribe(data => this.user = data);
+      this.userService.getUserByEmail(this.sessionKey).subscribe(data => {
+        this.user = data;
+
+        // Sanity check
+        this.loggy.info(this.user);
+      });
     }
   }
 

@@ -5,23 +5,15 @@
     <!-- Create div for each event -->
     <div *ngFor="let event of eventList; let i=index">
       <div *ngIf="!isHidden" class="card p-4 my-4 border-0 shadow">
-        <p hidden><strong>Event ID: </strong>{{event?.id}}</p>
+        <p><strong>Event ID: </strong>{{event?.id}}</p>
         <p><strong>Event Title: </strong>{{event?.title}}</p>
         <p><strong>Event Description: </strong>{{event?.description}}</p>
         <p><strong>Event Location: </strong>{{event?.location}}</p>
         <p><strong>Date & Time: </strong>{{event?.dateTime}}</p>
-        <p hidden><strong>User ID: </strong>{{event?.userId}}</p>
+        <p><strong>User ID: </strong>{{event?.userId}}</p>
         <hr>
         <button type="button" class="btn btn-danger" (click)="deleteEvent(i)">Delete</button>
       </div>
-    </div>
-    <div>
-      <p>{{event?.id}}</p>
-      <p>{{event?.title}}</p>
-      <p>{{event?.description}}</p>
-      <p>{{event?.location}}</p>
-      <p>{{event?.dateTime}}</p>
-      <p>{{event?.userId}}</p>
     </div>
   </div>
 </div>

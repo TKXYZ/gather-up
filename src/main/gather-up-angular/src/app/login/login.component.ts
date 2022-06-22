@@ -20,9 +20,6 @@ export class LoginComponent implements OnInit {
   login() {
     this.loggy.info("login() invoked");
 
-    // Sanity check
-    this.loggy.info(this.user);
-
     // DB operation
     this.userService.getUserByEmail(this.user.email).subscribe(data => {
       // Validate email
