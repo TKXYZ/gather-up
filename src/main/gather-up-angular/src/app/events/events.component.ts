@@ -32,9 +32,6 @@ export class EventsComponent implements OnInit {
       this.userService.getUserByEmail(this.sessionKey).subscribe(data => {
         this.user = data;
 
-        // user check
-        this.loggy.info(this.user);
-
         // GET user's events
         this.eventService.getEvents().subscribe(data => {
           for (let i in data) {
@@ -42,9 +39,6 @@ export class EventsComponent implements OnInit {
               this.eventList.push(data[i]);
             }
           }
-
-          // eventList[] check
-          this.loggy.info(this.eventList);
         });
       });
     }
