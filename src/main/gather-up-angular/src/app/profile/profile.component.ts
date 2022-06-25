@@ -26,9 +26,6 @@ export class ProfileComponent implements OnInit {
       // GET user
       this.userService.getUserByEmail(this.sessionKey).subscribe(data => {
         this.user = data;
-
-        // Sanity check
-        this.loggy.info(this.user);
       });
     }
   }
