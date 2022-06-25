@@ -28,8 +28,8 @@
 </div>
 
 <!-- ADD EVENT FORM MODAL -->
-<div class="container modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <!-- MODAL HEADER -->
       <div class="modal-header">
@@ -39,16 +39,16 @@
       <!-- MODAL BODY -->
       <div class="modal-body">
         <form #addEventForm="ngForm">
-          <div class="form-group">
+          <div class="form-group my-2">
             <input [(ngModel)]="event.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
           </div>
-          <div class="form-group">
+          <div class="form-group my-2">
             <input [(ngModel)]="event.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
           </div>
-          <div class="form-group">
+          <div class="form-group my-2">
             <input [(ngModel)]="event.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
           </div>
-          <div class="form-group">
+          <div class="form-group my-2">
             <input [(ngModel)]="event.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
           </div>
         </form>
