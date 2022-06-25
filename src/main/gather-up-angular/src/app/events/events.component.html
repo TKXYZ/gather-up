@@ -1,10 +1,14 @@
 <!-- EVENT LIST -->
 <div class="container shadow bg-light p-4 my-4">
-  <div class="display-4 text-center m-4">Events</div>
+  <div class="container d-flex justify-content-center mt-5">
+    <img class="rounded d-block shadow" src="https://w.wallhaven.cc/full/5w/wallhaven-5w6j85.jpg" width="100%" alt="Event Image">
+  </div>
+
+  <div class="display-4 text-center p-4 my-4">Events</div>
   <div class="container col-10">
     <!-- Create div for each event -->
     <div *ngFor="let event of eventList; let i=index">
-      <div *ngIf="!isHidden" class="card p-5 my-4 border-0 shadow">
+      <div *ngIf="!isHidden" class="card shadow border-0 p-4 my-4">
         <p hidden><strong>ID: </strong>{{event?.id}}</p>
         <p><strong>Title: </strong>{{event?.title}}</p>
         <p><strong>Description: </strong>{{event?.description}}</p>
@@ -19,7 +23,7 @@
 </div>
 
 <!-- LAUNCH MODAL BUTTON -->
-<div class="container d-flex justify-content-center my-4">
+<div class="container d-flex justify-content-center p-4 my-4">
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">Add Event</button>
 </div>
 
