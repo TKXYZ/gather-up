@@ -20,17 +20,13 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.loggy.info("register() invoked");
 
-    // DB operation
+    // Verify user doesn't exit in the DB
     this.userService.getUserByEmail(this.user.email).subscribe(data => {
       if (data == null) {
         this.userService.createUser(this.user).subscribe();
 
-        this.loggy.info("Registration successful.");
-
         // Store key for current session
         sessionStorage.setItem("email", this.user.email);
-        let sessionKey = sessionStorage.getItem("email");
-        this.loggy.info("Stored key: " + sessionKey);
 
         // Route
         window.location.assign("/profile");

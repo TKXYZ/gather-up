@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loggy.info("login() invoked");
 
-    // DB operation
+    // GET user
     this.userService.getUserByEmail(this.user.email).subscribe(data => {
       // Validate email
       if (data == null) {
@@ -29,12 +29,8 @@ export class LoginComponent implements OnInit {
       } else {
         // Validate password
         if (this.user.password == data.password) {
-          this.loggy.info("Login successful.");
-
           // Store key for current session
           sessionStorage.setItem("email", this.user.email);
-          let sessionKey = sessionStorage.getItem("email");
-          this.loggy.info("Stored key: " + sessionKey);
 
           // Route
           window.location.assign("/profile");

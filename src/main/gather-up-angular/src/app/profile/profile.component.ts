@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     // Extract session key from sessionStorage
     this.sessionKey = sessionStorage.getItem("email")!; // TS non-null assertion operator
-    this.loggy.warn("Session Key: " + this.sessionKey);
 
     // Validate if key exists and do something
     if (this.sessionKey == null) {

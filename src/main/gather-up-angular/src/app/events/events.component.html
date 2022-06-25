@@ -1,16 +1,16 @@
 <!-- EVENT LIST -->
-<div class="container shadow bg-light p-2 my-4">
+<div class="container shadow bg-light p-4 my-4">
   <div class="display-4 text-center m-4">Events</div>
-  <div class="container col-8">
+  <div class="container col-10">
     <!-- Create div for each event -->
     <div *ngFor="let event of eventList; let i=index">
-      <div *ngIf="!isHidden" class="card p-4 my-4 border-0 shadow">
-        <p><strong>Event ID: </strong>{{event?.id}}</p>
-        <p><strong>Event Title: </strong>{{event?.title}}</p>
-        <p><strong>Event Description: </strong>{{event?.description}}</p>
-        <p><strong>Event Location: </strong>{{event?.location}}</p>
-        <p><strong>Date & Time: </strong>{{event?.dateTime}}</p>
-        <p><strong>User ID: </strong>{{event?.userId}}</p>
+      <div *ngIf="!isHidden" class="card p-5 my-4 border-0 shadow">
+        <p hidden><strong>ID: </strong>{{event?.id}}</p>
+        <p><strong>Title: </strong>{{event?.title}}</p>
+        <p><strong>Description: </strong>{{event?.description}}</p>
+        <p><strong>Location: </strong>{{event?.location}}</p>
+        <p><strong>Date & Time: </strong>{{event?.dateTime | date: "short"}}</p>
+        <p hidden><strong>User ID: </strong>{{event?.userId}}</p>
         <hr>
         <button type="button" class="btn btn-danger" (click)="deleteEvent(i)">Delete</button>
       </div>
@@ -18,46 +18,41 @@
   </div>
 </div>
 
-<!-- ADD EVENT -->
-<div class="container">
-  <!-- LAUNCH MODAL BUTTON -->
+<!-- LAUNCH MODAL BUTTON -->
+<div class="container d-flex justify-content-center my-4">
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">Add Event</button>
-  <!-- ADD FORM MODAL -->
-  <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- MODAL HEADER -->
-        <div class="modal-header">
-          <h4 class="modal-title" id="addEventModalLabel">Add an Event</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- MODAL BODY -->
-        <div class="modal-body">
-          <form #addEventForm="ngForm">
-            <!-- TITLE -->
-            <div class="form-group">
-              <input [(ngModel)]="event.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
-            </div>
-            <!-- DESCRIPTION -->
-            <div class="form-group">
-              <input [(ngModel)]="event.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
-            </div>
-            <!-- LOCATION -->
-            <div class="form-group">
-              <input [(ngModel)]="event.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
-            </div>
-            <!-- DATETIME -->
-            <div class="form-group">
-              <input [(ngModel)]="event.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
-            </div>
-          </form>
-        </div>
-        <!-- MODAL FOOTER -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="saveEvent()">Save</button>
-          <!-- <button type="button" class="btn btn-primary" (click)="saveEvent()" [disabled]="!addEventForm.form.valid">Save</button> -->
-        </div>
+</div>
+
+<!-- ADD EVENT FORM MODAL -->
+<div class="container modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- MODAL HEADER -->
+      <div class="modal-header">
+        <h4 class="modal-title" id="addEventModalLabel">Add an Event</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- MODAL BODY -->
+      <div class="modal-body">
+        <form #addEventForm="ngForm">
+          <div class="form-group">
+            <input [(ngModel)]="event.title" name="title" #title="ngModel" type="text" placeholder="Event Title" class="form-control border-0 shadow px-4" required>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="event.description" name="description" #description="ngModel" type="text" placeholder="Event Description" class="form-control border-0 shadow px-4" required>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="event.location" name="location" #location="ngModel" type="text" placeholder="Event Location" class="form-control border-0 shadow px-4" required>
+          </div>
+          <div class="form-group">
+            <input [(ngModel)]="event.dateTime" name="dateTime" #dateTime="ngModel" type="datetime-local" class="form-control border-0 shadow px-4" required>
+          </div>
+        </form>
+      </div>
+      <!-- MODAL FOOTER -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveEvent()" [disabled]="!addEventForm.form.valid">Save</button>
       </div>
     </div>
   </div>

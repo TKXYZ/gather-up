@@ -12,9 +12,9 @@ import { UserService } from '../service/user/user.service';
 })
 export class EventsComponent implements OnInit {
 
-  event: Event = new Event(0, "title", "description", "location", "dateTime", 0);
-  eventList: Event[] = [];
   user: User = new User(0, "", "", "", "", "");
+  event: Event = new Event(0, "", "", "", "", 0);
+  eventList: Event[] = [];
   sessionKey: string;
   isHidden = false;
 
@@ -23,7 +23,6 @@ export class EventsComponent implements OnInit {
   ngOnInit(): void {
     // Extract session key from sessionStorage
     this.sessionKey = sessionStorage.getItem("email")!; // TS non-null assertion operator
-    this.loggy.warn("Session Key: " + this.sessionKey);
 
     // Validate if key exists and do something
     if (this.sessionKey == null) {
@@ -33,27 +32,26 @@ export class EventsComponent implements OnInit {
       this.userService.getUserByEmail(this.sessionKey).subscribe(data => {
         this.user = data;
 
-        // Sanity check
+        // user check
         this.loggy.info(this.user);
-      });
 
-      // GET user's events
-      this.eventService.getEvents().subscribe(data => {
-        // Iterate through all events and push only user's events into eventList
-        for (let i in data) {
-          if (data[i].userId == this.user.id) {
-            this.eventList.push(data[i]);
+        // GET user's events
+        this.eventService.getEvents().subscribe(data => {
+          for (let i in data) {
+            if (data[i].userId == this.user.id) {
+              this.eventList.push(data[i]);
+            }
           }
-        }
 
-        // Sanity check
-        this.loggy.info(this.eventList);
+          // eventList[] check
+          this.loggy.info(this.eventList);
+        });
       });
     }
   }
 
   saveEvent(): void {
-    this.loggy.log("saveEvent() invoked");
+    this.loggy.info("saveEvent() invoked");
 
     // Set the event's userId
     this.event.userId = this.user.id;
@@ -66,6 +64,15 @@ export class EventsComponent implements OnInit {
   }
 
   deleteEvent(index: number): void {
+    this.loggy.info("deleteEvent() invoked");
 
+    // Extract selected event's Id
+    let selectedEventId = this.eventList[index].id;
+
+    // Delete event from DB by it's Id
+    this.eventService.deleteEventById(selectedEventId).subscribe();
+
+    // Reload
+    window.location.reload();
   }
 }
