@@ -8,9 +8,13 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class AppComponent {
 
+  sessionKey: string;
+
   constructor(private loggy: NGXLogger) { }
 
-  ngOnInit() { }
+  ngOnInit(): void {
+    this.sessionKey = sessionStorage.getItem("email")!;
+  }
 
   logOut() {
     // Clear session
