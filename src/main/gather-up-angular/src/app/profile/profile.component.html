@@ -1,29 +1,30 @@
 <div class="container my-4">
   <!-- CARD -->
   <div class="card">
-    <img class="card-img-top p-4 my-4" src="https://i.pinimg.com/originals/cd/51/a9/cd51a90028e9adbf575d2d2d42cc87b4.png" alt="Profile Image">
+    <!-- CARD BANNER -->
+    <img calss="card-banner" src="https://i.pinimg.com/originals/cd/51/a9/cd51a90028e9adbf575d2d2d42cc87b4.png" alt="Profile Image">
+    <!-- CARD TITLE -->
+    <div class="card-title">
+      <p class="display-4">Profile</p>
+    </div>
+    <!-- CARD BODY -->
     <div class="card-body">
-      <h4 class="card-title display-4 mb-4">Profile</h4>
-      <div>
-        <p hidden><strong>ID: </strong>{{user?.id}}</p>
-        <p><strong>Email: </strong>{{user?.email}}</p>
-        <p><strong>Password: </strong>{{user?.password}}</p>
-        <p><strong>First Name: </strong>{{user?.firstName}}</p>
-        <p><strong>Last Name: </strong>{{user?.lastName}}</p>
-        <p><strong>Contact: </strong>{{user?.contact}}</p>
-      </div>
-      <!-- BUTTONS -->
-      <div class="p-4 my-4">
-        <button class="btn btn-primary btn-block mx-2" routerLink="/events" routerLinkActive="active-link">My Events</button>
-        <button class="btn btn-danger btn-block mx-2" (click)="logOut()">Log Out</button>
-      </div>
+      <p hidden><strong>ID: </strong>{{user?.id}}</p>
+      <p><strong>Email: </strong>{{user?.email}}</p>
+      <p><strong>Password: </strong>{{user?.password}}</p>
+      <p><strong>First Name: </strong>{{user?.firstName}}</p>
+      <p><strong>Last Name: </strong>{{user?.lastName}}</p>
+      <p><strong>Contact: </strong>{{user?.contact}}</p>
+    </div>
+    <!-- CARD BUTTONS -->
+    <div class="card-buttons my-4">
+      <button class="btn btn-primary btn-block mx-2" routerLink="/events" routerLinkActive="active-link">My Events</button>
+      <button class="btn btn-danger btn-block mx-2" (click)="logOut()">Log Out</button>
     </div>
   </div>
 </div>
 
 <!-- 
-	*ngFor="let user of users"
-
 	To print raw JSON:
 		<p>User: {{user | json}}</p>
  -->
