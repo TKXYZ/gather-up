@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tkxyz.gatherup.model.User;
 import com.tkxyz.gatherup.service.UserService;
 
+/**
+ * Controller class that consumes service class and triggers HTTP requests.
+ */
 @CrossOrigin
 @RestController
 public class UserController {
 
   private final UserService userService;
 
+  // Constructor injection
   @Autowired
   public UserController(UserService userService) {
     this.userService = userService;
