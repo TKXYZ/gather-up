@@ -1,0 +1,10 @@
+.banner,
+.image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('https://w.wallhaven.cc/full/eo/wallhaven-eo895o.jpg');
+  background-size: cover;
+  background-position: center center;
+}
